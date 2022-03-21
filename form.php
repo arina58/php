@@ -1,20 +1,3 @@
-<?php
-    header('Content-type: text/html; charset=utf-8');
-    if(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['d'])){
-        $x = $_GET[x];
-        $y = $_GET[y];
-        $d = $_GET[d];
-        $result = $x.$d.$y.'=';
-        switch($d){
-            case '+': $result .= $x + $y; break;
-            case '-': $result .= $x - $y; break;
-            case '*': $result .= $x * $y; break;
-            case '/': $result .= $x / $y; break;
-        }
-    }
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="form.php" method="GET">
-        <span class="text">x = </span><input name="x" type="number"><br><br>
-        <span class="text">y = </span><input name="y" type="number"><br><br>
-        <span class="text">Действие: </span>
-        <select name="d" type="text">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
+<?php
+    header('Content-type: text/html; charset=utf-8');
+    if (empty($_GET)){
+    ?>        
 
-        <input type="submit" value="Отправить">
-    </form>
-    <div id="res">
-        <?php
-            echo $result;
-        ?>
-    </div>
+    <form action="form.php" method="GET">
+        <span class="text">Ваше имя? </span><input name="name" type="text"><br>
+        <input type="submit" value="ОК">
+    <?php
+        } else{
+            echo $_GET['name'];
+        }
+    ?>
 </body>
 </html>
