@@ -8,12 +8,13 @@
 </head>
 <body>    
     <form action="form.php" method="GET">
-        <span class="text">Ваш город? </span><input name="gorod" type="text" value="<?php if (isset($_GET['gorod'])) echo $_GET['gorod'] ?>"><br>
-        <span class="text">Ваша страна? </span><input name="strana" type="text" value="<?php if (isset($_GET['strana'])) echo $_GET['strana'] ?>"><br>
+        <span class="text">Введите градусы Цельсия </span><input name="grad" type="number"><br>
         <input type="submit" value="ОК">
     <div>
     <?php
-        echo $_GET['gorod'].' '.$_GET[strana];
+        if (!empty ($_GET['grad'])) {$result = ($_GET[grad] * 1.8) + 32;
+        echo 'Фаренгейты: '.$result;
+        }
     ?>
     </div>
 </body>
