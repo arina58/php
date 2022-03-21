@@ -8,8 +8,16 @@
 </head>
 <body>
     <form action="form.php" method="GET">
-        <span class="text">Имя: </span><input name="n" type="text"><br>
-        <span class="text">Фамилия: </span><input name="s" type="text"><br>
+        <span class="text">x = </span><input name="x" type="number"><br><br>
+        <span class="text">y = </span><input name="y" type="number"><br><br>
+        <span class="text">Действие: </span>
+        <select name="d" type="text">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
         <input type="submit" value="Отправить">
     </form>
 </body>
