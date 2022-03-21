@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-<?php
-    header('Content-type: text/html; charset=utf-8');
-    if (empty($_GET)){
-    ?>        
-
+<body>    
     <form action="form.php" method="GET">
-        <span class="text">Ваше имя? </span><input name="name" type="text"><br>
+        <span class="text">Ваш город? </span><input name="gorod" type="text" value="<?php if (isset($_GET['gorod'])) echo $_GET['gorod'] ?>"><br>
+        <span class="text">Ваша страна? </span><input name="strana" type="text" value="<?php if (isset($_GET['strana'])) echo $_GET['strana'] ?>"><br>
         <input type="submit" value="ОК">
+    <div>
     <?php
-        } else{
-            echo $_GET['name'];
-        }
+        echo $_GET['gorod'].' '.$_GET[strana];
     ?>
+    </div>
 </body>
 </html>
