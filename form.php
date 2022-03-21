@@ -4,17 +4,15 @@
     $y = $_GET['y'];
     $d = $_GET['d'];
     $result = $x.$d.$y.'=';
-    if ($d == '+'){
-        $result .= $x + $y;
-    }
-    if ($d == '-'){
-        $result .= $x - $y;
-    }
-    if ($d == '*'){
-        $result .= $x * $y;
-    }
-    if ($d == '/'){
-        $result .= $x / $y;
+    switch($d){
+        case '+': $result .= $x + $y;
+        break;
+        case '-': $result .= $x - $y;
+        break;
+        case '*': $result .= $x * $y;
+        break;
+        case '/': $result .= $x / $y;
+        break;
     }
     echo $result;
 ?>
