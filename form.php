@@ -7,13 +7,20 @@
     <title>Document</title>
 </head>
 <body>    
-    <form action="form.php" method="GET">
-        <span class="text">Ваш город? </span><input name="gorod" type="text" value="<?php if (isset($_GET['gorod'])) echo $_GET['gorod'] ?>"><br>
-        <span class="text">Ваша страна? </span><input name="strana" type="text" value="<?php if (isset($_GET['strana'])) echo $_GET['strana'] ?>"><br>
+    <form action="form.php" method="POST">
+        <span class="text">Введите число </span><input name="ch" type="number"><br>
         <input type="submit" value="ОК">
     <div>
     <?php
-        echo $_GET['gorod'].' '.$_GET[strana];
+        if (!empty ($_POST['ch'])){
+            $ch = $_POST['ch'];
+            for ($strt = 1; $strt < $ch; $strt++){
+                if ($ch % $strt == 0){
+                    echo $strt . ', ';
+                }
+            }
+            echo $ch;
+        }  
     ?>
     </div>
 </body>
