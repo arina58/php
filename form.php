@@ -1,20 +1,34 @@
+<?php
+    session_start();
+    if ($_GET['act'] === 'logout'){
+        unset($_SESSION['reg']);
+    }
+    if (!empty($_POST['name']) && !empty($_POST['pas'])){
+        if ($_POST['name'] === $_SESSION['user_login'] && $_POST['pas'] === $_SESSION['password']){
+            $_SESSION['reg'] = 1;
+            header('Location: index.php');
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Авторизация</title>
+    <link rel = "stylesheet" href="form.css">
 </head>
-<body>    
-    <form action="form.php" method="GET">
-        <span class="text">Ваш город? </span><input name="gorod" type="text" value="<?php if (isset($_GET['gorod'])) echo $_GET['gorod'] ?>"><br>
-        <span class="text">Ваша страна? </span><input name="strana" type="text" value="<?php if (isset($_GET['strana'])) echo $_GET['strana'] ?>"><br>
-        <input type="submit" value="ОК">
-    <div>
-    <?php
-        echo $_GET['gorod'].' '.$_GET[strana];
-    ?>
+<body>
+    <div id="content">
+        <form action="" method="post">
+            <h3>Авторизация</h3>
+            <input type="text" name="name" placeholder="Логин"><br>
+            <input type="text" name="pas" placeholder="Пароль"><br>
+            <input type="submit" name="">
+        </form>
+        <a href="formregistr.php" class="reg">Регистрация</a><br>
     </div>
 </body>
 </html>
+
+ 

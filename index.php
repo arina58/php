@@ -1,9 +1,20 @@
 <?php
-    header('Content-type: text/html; charset=utf-8');
-    // читаем со строки браузера
-    $str1 = $_GET['name'];
-    $str2 = $_GET['surname'];
-    $result = '<h1>Имя: '.$str1.'</h1>';//делаем стиль h1
-    $result .= '<h1>Фамилия: '.$str2.'</h1>';
-    print_r($result);
+    session_start();
+    header('Content-type:text/html; charset=utf-8');
+    if (!isset($_SESSION['reg'])){
+        header('Location: form.php');
+    }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+    <h1>Привет, <?php echo $_SESSION['user_login']; ?></h1>
+    <a href="form.php?act=logout">Выйти</a><br>
+    <a href="profil.php">Профиль</a><br>
+</body>
+</html>
+ 
